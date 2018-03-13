@@ -13,8 +13,13 @@ public class WebController {
 
     private static final String template = "Hello, %s!";
 
+    @RequestMapping("/")
+        public String index() {
+            return "Welcome to Sumair's App1. This is a sample project done on Spring-Boot!";
+        }
+    
     @RequestMapping("/welcome")
-    public WelcomeBean greeting(@RequestParam(value="name", defaultValue="World") String name) {
+    public WelcomeBean greeting(@RequestParam(value="name", defaultValue="there") String name) {
         return new WelcomeBean("1",
                             String.format(template, name));
     }
