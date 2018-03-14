@@ -6,12 +6,15 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import git_hub_sumair_app1.beans.UserInputBean;
 import git_hub_sumair_app1.beans.WelcomeBean;
+import git_hub_sumair_app1.dependency.AppDependency;
 
 import java.awt.print.Printable;
 import java.io.IOException;
 import java.util.Map;
 
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,6 +26,13 @@ public class WebController {
     private static final String template = "Hello, %s!";
     private static final String postTemplate = "Hello, %s!";
 
+    /*
+     * Demonstration of Dependency Injections
+     * */
+    @Autowired
+	@Qualifier("AppDependencyImpl")
+	private AppDependency appDependency;
+    
     /*
      * Method will print when we hit the server eg. localhost:8080
      * Default to Get
@@ -53,7 +63,7 @@ public class WebController {
     public WelcomeBean postGreetings(@RequestBody Map<String, Object> payload) {
         if(payload.containsKey("name"))
     	return new WelcomeBean("1",
-                            String.format(postTemplate, payload.get("name").toString()));
+                            String.format(postTemplate, payload.get("name").toString()+": The time is : " + appDependency.getLocalTime()));//implementing DI here no need to create object to call local time)
         else
         	return new WelcomeBean("1",
                     String.format(postTemplate, "there post method"));
