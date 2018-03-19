@@ -79,3 +79,31 @@ Post Calls
 ----------
 http://locahhost:8080/postWelcome
 JsonBody : {"name" :"Syed Sumair Ahmed"}
+
+Database Details(Queries to execute for the app1 to work)
+---------------------------------------------------------
+
+create database app1db;
+
+use database app1db;
+
+--Create table
+CREATE TABLE user (
+    id int primary key,
+    name varchar(255),
+    email varchar(255),
+    countrycode varchar(255),
+    phonenumber varchar(10) 
+);
+
+
+INSERT INTO user
+VALUES (1, 'Name1', 'email1@abc.com','1','1111111111');
+INSERT INTO user
+VALUES (2, 'Name2', 'email2@abc.com','2','2222222222');
+INSERT INTO user
+VALUES (3, 'Name3', 'email3@abc.com','3','3333333333');
+INSERT INTO user
+VALUES (4, 'Name4', 'email4@abc.com','4','4444444444');
+INSERT INTO user
+VALUES (5, 'Name5', 'email5@abc.com','5','5555555555');

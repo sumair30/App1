@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import git_hub_sumair_app1.beans.UserInputBean;
 import git_hub_sumair_app1.beans.WelcomeBean;
+import git_hub_sumair_app1.controller.dto.User;
 import git_hub_sumair_app1.dependency.AppDependency;
 
 import java.awt.print.Printable;
@@ -15,10 +16,12 @@ import java.util.Map;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @RestController
 public class WebController {
@@ -33,6 +36,7 @@ public class WebController {
 	@Qualifier("AppDependencyImpl")
 	private AppDependency appDependency;
     
+   
     /*
      * Method will print when we hit the server eg. localhost:8080
      * Default to Get
@@ -88,6 +92,5 @@ public class WebController {
 			e.printStackTrace();
 		}
 		return null;
-	}
-    
+	}  
 }
