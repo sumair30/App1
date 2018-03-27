@@ -40,4 +40,23 @@ public class DbController {
 			// This returns a JSON or XML with the users
 			return userRepository.findAll();
 		}	
+		
+		@GetMapping(path="/findByName")
+		public @ResponseBody Iterable<User> findUserByName(@RequestParam String name) {
+			// This returns a JSON or XML with the users		
+			return userRepository.findByName(name);
+		}	
+		
+		@GetMapping(path="/findById")
+		public @ResponseBody Iterable<User> findUserById(@RequestParam String id) {
+			// This returns a JSON or XML with the users		
+			return userRepository.findById(Integer.parseInt(id));
+		}	
+		
+		@GetMapping(path="/updateUserName")
+		public @ResponseBody int updateUserName(@RequestParam String name, @RequestParam String id) {
+			// This returns a JSON or XML with the users		
+			return userRepository.updateUserName(name,Integer.parseInt(id));
+		}	
+		
 }

@@ -75,6 +75,15 @@ Get Calls
 http://localhost:8080/
 http://locahhost:8080/welcome
 
+DB - rest calls:
+---------------
+http://localhost:8080/demo/all
+http://localhost:8080/demo/add?id=6&name=Name7&email=email7@abc.com&cc=6&pn=6676666666
+http://localhost:8080/demo/findByName?name=Sumair
+http://localhost:8080/demo/findById?id=id
+http://localhost:8080/demo/updateUserName?name=Sumair&id=8
+
+
 Post Calls
 ----------
 http://locahhost:8080/postWelcome
